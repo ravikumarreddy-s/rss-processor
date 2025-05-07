@@ -21,7 +21,7 @@ public class RssMessageScheduler {
     @Value("${rss.feed.url}")
     private String rssFeedURL;
 
-    @Scheduled(cron = "0 */1 * ? * *")
+    @Scheduled(cron = "0 */5 * ? * *")
     public void pollNewsFeed() throws Exception {
         RssFeed rssFeed=rssService.getFeed(rssFeedURL);
         rssMessagePublisher.sendMessageToTopic(rssFeed);
